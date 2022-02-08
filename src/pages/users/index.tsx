@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { Header, Pagination, Sidebar } from '@/components'
 import { RiAddLine, RiPencilLine } from 'react-icons/ri'
+import Link from 'next/link'
 
 export default function UserList() {
   const isWideVersion = useBreakpointValue({
@@ -34,15 +35,23 @@ export default function UserList() {
             <Heading size="lg" fontWeight="normal">
               Usuários
             </Heading>
-            <Button as="a" size="sm" fontSize="sm" colorScheme="pink" leftIcon={<Icon as={RiAddLine} fontSize="20" />}>
-              Criar novo
-            </Button>
+            <Link href="/users/create">
+              <Button
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              >
+                Criar novo
+              </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px={['4', '4', '6']} color="gray.300" width="8">
+                <Th px={['6', '6', '6']} color="gray.300" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>Usuário</Th>
@@ -52,7 +61,7 @@ export default function UserList() {
             </Thead>
             <Tbody>
               <Tr>
-                <Td px={['4', '4', '6']}>
+                <Td px={['6', '6', '6']}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
