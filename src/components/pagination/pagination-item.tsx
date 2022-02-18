@@ -4,9 +4,10 @@ import mitt from 'next/dist/shared/lib/mitt'
 type Props = {
   isCurrent?: boolean
   number: number
+  onPageChange: (page: number) => void
 }
 
-export function PaginationItem({ isCurrent = false, number }: Props) {
+export function PaginationItem({ isCurrent = false, onPageChange, number }: Props) {
   if (isCurrent) {
     return (
       <Button
@@ -32,6 +33,7 @@ export function PaginationItem({ isCurrent = false, number }: Props) {
       width="4"
       colorScheme="pink"
       bgColor="gray.700"
+      onClick={() => onPageChange(number)}
       _hover={{
         bgColor: 'gray.500',
       }}
